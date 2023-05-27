@@ -13,21 +13,21 @@ public class SchedulerService {
      * @ScheduleFixedDelay
      * fixedDelay 는 milliseconds 단위, 이전 Task 종료 시점부터 정의된 시간만큼 지난 후 Task 를 실행한다.
      */
-//    @Scheduled(fixedDelay = 1000)
-//    public void scheduleFixedDelayTask() {
-//        System.out.println(
-//                "Fixed delay task - " + System.currentTimeMillis() / 1000);
-//    }
+    @Scheduled(fixedDelay = 1000)
+    public void scheduleFixedDelayTask() {
+        System.out.println(
+                "Fixed delay task - " + System.currentTimeMillis() / 1000);
+    }
 
     /**
      * @ScheduleFixedRate
      * 이전 task 시작 시점부터 정의된 시간만큼 지난 후 task 를 실행.
      */
-//    @Scheduled(fixedRate = 1000)
-//    public void scheduleFixedRate() {
-//        System.out.println(
-//                "Fixed rate task : " + System.currentTimeMillis() / 1000);
-//    }
+    @Scheduled(fixedRate = 1000)
+    public void scheduleFixedRate() {
+        System.out.println(
+                "Fixed rate task : " + System.currentTimeMillis() / 1000);
+    }
 
     /**
      * @ScheduleInitialDelay
@@ -39,4 +39,15 @@ public class SchedulerService {
                 "InitialDelay : " + System.currentTimeMillis() / 1000);
     }
 
+    /**
+     * cron 표현식을 이용해 작업을 예약
+     * ex.(cron = "* * * * * *")
+     * 초, 분, 시, 일, 월, 요일 순으로 예약 가능하다
+     * 다음은 매일 23시 59분 59초에 실행하는 것을 의미
+     */
+    @Scheduled(cron = "59 59 23 * * *")
+    public void scheduleCron() {
+        System.out.println(
+                "cron : " + System.currentTimeMillis() / 1000);
+    }
 }
