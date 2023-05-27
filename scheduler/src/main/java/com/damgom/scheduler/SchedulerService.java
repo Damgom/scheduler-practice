@@ -11,11 +11,18 @@ public class SchedulerService {
      * Parameter 사용 불가, return Type 은 void
      * fixedDelay 는 milliseconds 단위, 이전 Task 종료 시점부터 정의된 시간만큼 지난 후 Task 를 실행한다.
      */
-    @Scheduled(fixedDelay = 1000)
-    public void scheduleFixedDelayTask() {
-        System.out.println(
-                "Fixed delay task - " + System.currentTimeMillis() / 1000);
-    }
+//    @Scheduled(fixedDelay = 1000)
+//    public void scheduleFixedDelayTask() {
+//        System.out.println(
+//                "Fixed delay task - " + System.currentTimeMillis() / 1000);
+//    }
 
-    
+    /**
+     * 이전 task 시작 시점부터 정의된 시간만큼 지난 후 task 를 실행.
+     */
+    @Scheduled(fixedRate = 1000)
+    public void scheduleFixedRate() {
+        System.out.println(
+                "Fixed rate task : " + System.currentTimeMillis() / 1000);
+    }
 }
